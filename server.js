@@ -23,3 +23,25 @@ app.get('/series', (req, res) => res.json(series));
 app.get('/songs', (req, res) => res.json(songs));
 
 app.use((req, res) => res.status(404).send('404 Not Found'));
+
+// POST
+app.post('/movies', (req, res) => {
+  movies.push(req.body);
+    res.json(movies);
+    });
+
+    // DELETE
+    app.delete('/movies/:id', (req, res) => {
+      const id = parseInt(req.params.id);
+        const index = movies.findIndex(m => m.id === id);
+          if (index !== -1) movies.splice(index, 1);
+            res.json(movies);
+            });
+
+            // PUT
+            app.put('/movies/:id', (req, res) => {
+              const id = parseInt(req.params.id);
+                const index = movies.findIndex(m => m.id === id);
+                  if (index !== -1) movies[index] = req.body;
+                    res.json(movies);
+                    });
