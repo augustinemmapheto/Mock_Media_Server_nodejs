@@ -30,18 +30,65 @@ app.post('/movies', (req, res) => {
     res.json(movies);
     });
 
-    // DELETE
-    app.delete('/movies/:id', (req, res) => {
-      const id = parseInt(req.params.id);
-        const index = movies.findIndex(m => m.id === id);
-          if (index !== -1) movies.splice(index, 1);
-            res.json(movies);
-            });
+// DELETE
+app.delete('/movies/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+    const index = movies.findIndex(m => m.id === id);
+      if (index !== -1) movies.splice(index, 1);
+        res.json(movies);
+        });
 
-            // PUT
-            app.put('/movies/:id', (req, res) => {
-              const id = parseInt(req.params.id);
-                const index = movies.findIndex(m => m.id === id);
-                  if (index !== -1) movies[index] = req.body;
-                    res.json(movies);
-                    });
+  // PUT
+app.put('/series/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+    const index = series.findIndex(m => m.id === id);
+      if (index !== -1) series[index] = req.body;
+        res.json(series);
+        });
+
+// POST
+app.post('/series', (req, res) => {
+  series.push(req.body);
+    res.json(series);
+    });
+
+// DELETE
+app.delete('/series/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+    const index = series.findIndex(m => m.id === id);
+      if (index !== -1) series.splice(index, 1);
+        res.json(series);
+        });
+
+  // PUT
+app.put('/series/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+    const index = series.findIndex(m => m.id === id);
+      if (index !== -1) series[index] = req.body;
+        res.json(series);
+        });
+
+
+// POST
+app.post('/songs', (req, res) => {
+  movies.push(req.body);
+    res.json(songs);
+    });
+
+// DELETE
+app.delete('/songs/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+    const index = songs.findIndex(m => m.id === id);
+      if (index !== -1) songs.splice(index, 1);
+        res.json(songs);
+        });
+
+  // PUT
+app.put('/songs/:id', (req, res) => {
+  const id = parseInt(req.params.id);
+    const index = songs.findIndex(m => m.id === id);
+      if (index !== -1) songs[index] = req.body;
+        res.json(songs);
+        });
+
+
