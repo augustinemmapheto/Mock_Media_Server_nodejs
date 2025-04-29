@@ -1,5 +1,5 @@
 import express from 'express';
-import { readAll, writeAll } from './fileStore.js';
+import { readAll, writeAll } from './database.js';
 
 export default function makeRouter(resource) {
   const router = express.Router();
